@@ -8406,6 +8406,96 @@
 		)
 		(uuid "acc75855-bb12-43ab-9e40-49251d25d5ca")
 	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 203.2 146.05 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5847753a-e951-48ff-8160-491aea64857f")
+		(property "Reference" "#FLG03"
+			(at 205.1 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 207.01 146.05 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 203.2 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 203.2 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 203.2 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5567155b-b7d6-4821-bb3d-2708db6a853f")
+		)
+		(instances
+			(project "tiny-vga"
+				(path "/48d88fc2-ef96-4320-9e25-3db84dc2dfb5"
+					(reference "#FLG03")
+					(unit 1)
+				)
+			)
+			(project "qspi-pmod"
+				(path "/702ec277-2284-48d6-94f3-5b91c08910c1"
+					(reference "#FLG03")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 203.2 146.05) (xy 203.2 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4d9fe40a-b457-4ec3-a759-d29e769d2af6")
+	)
+	(junction
+		(at 203.2 149.86)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bcf78ddf-c2f9-4ebd-97e2-b8ba147bc6c3")
+	)
 	(sheet_instances
 		(path "/"
 			(page "1")
