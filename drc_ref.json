@@ -1,0 +1,1213 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-07-19T23:39:42",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "key": "pth_inside_courtyard"
+        },
+        {
+            "description": "NPTH inside courtyard",
+            "key": "npth_inside_courtyard"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning"
+    ],
+    "kicad_version": "10.0.4",
+    "schematic_parity": [],
+    "source": "qspi-pmod.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "Kohteet oikosulkee kaksi verkkoa (verkot <ei verkkoa> ja PMOD7)",
+            "items": [
+                {
+                    "description": "Segmentti [<no net>] jostain J2, kohteessa B.Cu",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 86.04
+                    },
+                    "uuid": "b0c56bbb-dd0b-48ae-a96a-22dddf58796c"
+                },
+                {
+                    "description": "Johdinraita [PMOD7] > B.Cu, pituus 0,4808 mm",
+                    "pos": {
+                        "x": 154.64,
+                        "y": 85.7
+                    },
+                    "uuid": "dfec8aad-799c-42d2-9b3b-a2def3b36ec8"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Mittarikkomus ( välys 0,2000 mm; todellinen 0,0000 mm)",
+            "items": [
+                {
+                    "description": "Johdinraita [PMOD8] > B.Cu, pituus 3,0830 mm",
+                    "pos": {
+                        "x": 156.48,
+                        "y": 86.4
+                    },
+                    "uuid": "36ee025a-a672-42fc-a5c6-d09e12d29344"
+                },
+                {
+                    "description": "Segmentti [<no net>] jostain J2, kohteessa B.Cu",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 88.58
+                    },
+                    "uuid": "a07c81aa-ac36-4a15-91aa-b4142203ecb8"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Mittarikkomus ( välys 0,2000 mm; todellinen 0,0000 mm)",
+            "items": [
+                {
+                    "description": "Johdinraita [PMOD7_IN] > B.Cu, pituus 1,7536 mm",
+                    "pos": {
+                        "x": 150.52,
+                        "y": 84.8
+                    },
+                    "uuid": "a2ee7e31-64ab-4061-9a08-7e181d2340d0"
+                },
+                {
+                    "description": "Segmentti [<no net>] jostain J2, kohteessa B.Cu",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 86.04
+                    },
+                    "uuid": "b0c56bbb-dd0b-48ae-a96a-22dddf58796c"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Mittarikkomus ( välys 0,2000 mm; todellinen 0,0000 mm)",
+            "items": [
+                {
+                    "description": "PTH-antura 2 [PMOD1] J2:sta",
+                    "pos": {
+                        "x": 154.3,
+                        "y": 83.5
+                    },
+                    "uuid": "6ff66590-1525-44ae-845c-69c765bd0afc"
+                },
+                {
+                    "description": "Segmentti [<no net>] jostain J2, kohteessa B.Cu",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 83.5
+                    },
+                    "uuid": "83432938-7ef1-4313-911a-0cfb51652e5c"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Kohteet oikosulkee kaksi verkkoa (verkot <ei verkkoa> ja PMOD1_IN)",
+            "items": [
+                {
+                    "description": "Segmentti [<no net>] jostain J2, kohteessa B.Cu",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 83.5
+                    },
+                    "uuid": "83432938-7ef1-4313-911a-0cfb51652e5c"
+                },
+                {
+                    "description": "PTH-antura 1 [PMOD1_IN] J2:sta",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 83.5
+                    },
+                    "uuid": "f8d2442d-88bc-4332-a0c7-98d8222533e4"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Mittarikkomus ( välys 0,2000 mm; todellinen 0,0000 mm)",
+            "items": [
+                {
+                    "description": "PTH-antura 4 [PMOD7] J2:sta",
+                    "pos": {
+                        "x": 154.3,
+                        "y": 86.04
+                    },
+                    "uuid": "81ef6ac7-6893-4726-b757-3e3f64ac89ae"
+                },
+                {
+                    "description": "Segmentti [<no net>] jostain J2, kohteessa B.Cu",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 86.04
+                    },
+                    "uuid": "b0c56bbb-dd0b-48ae-a96a-22dddf58796c"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Mittarikkomus ( välys 0,2000 mm; todellinen 0,0000 mm)",
+            "items": [
+                {
+                    "description": "PTH-antura 3 [PMOD7_IN] J2:sta",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 86.04
+                    },
+                    "uuid": "37ef41a8-1476-4b25-8cfd-3c0ee2c87f7d"
+                },
+                {
+                    "description": "Segmentti [<no net>] jostain J2, kohteessa B.Cu",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 86.04
+                    },
+                    "uuid": "b0c56bbb-dd0b-48ae-a96a-22dddf58796c"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Kohteet oikosulkee kaksi verkkoa (verkot <ei verkkoa> ja PMOD8)",
+            "items": [
+                {
+                    "description": "Segmentti [<no net>] jostain J2, kohteessa B.Cu",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 88.58
+                    },
+                    "uuid": "a07c81aa-ac36-4a15-91aa-b4142203ecb8"
+                },
+                {
+                    "description": "PTH-antura 6 [PMOD8] J2:sta",
+                    "pos": {
+                        "x": 154.3,
+                        "y": 88.58
+                    },
+                    "uuid": "f923b407-69cf-4df5-80e7-f686d005fd9b"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Mittarikkomus ( välys 0,2000 mm; todellinen 0,0000 mm)",
+            "items": [
+                {
+                    "description": "PTH-antura 5 [PMOD8_IN] J2:sta",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 88.58
+                    },
+                    "uuid": "427f51b6-b20b-463a-bcff-b7fbff6f2b25"
+                },
+                {
+                    "description": "Segmentti [<no net>] jostain J2, kohteessa B.Cu",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 88.58
+                    },
+                    "uuid": "a07c81aa-ac36-4a15-91aa-b4142203ecb8"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Lämpöhelpotuksen yhdistäminen vyöhykkeisiin keskeneräinen (kerros F.Cu; vyöhyke min pinnojen määrä 2; todellinen 1)",
+            "items": [
+                {
+                    "description": "Zone [+3.3V] kerroksella F.Cu, priority 1",
+                    "pos": {
+                        "x": 140.4,
+                        "y": 90.3
+                    },
+                    "uuid": "6302ddfe-82e5-4e48-a283-6fb27a48c7e6"
+                },
+                {
+                    "description": "Pad 2 [+3.3V], viite R1, taso F.Cu",
+                    "pos": {
+                        "x": 156.6,
+                        "y": 89.71
+                    },
+                    "uuid": "d05af89f-fd8e-4991-a778-84babf13ab3b"
+                }
+            ],
+            "severity": "error",
+            "type": "starved_thermal"
+        },
+        {
+            "description": "Takana olevan juotosmaskin aukko siltaa kohteita eri verkoilla",
+            "items": [
+                {
+                    "description": "Segmentti [<no net>] jostain J2, kohteessa B.Cu",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 83.5
+                    },
+                    "uuid": "83432938-7ef1-4313-911a-0cfb51652e5c"
+                },
+                {
+                    "description": "PTH-antura 2 [PMOD1] J2:sta",
+                    "pos": {
+                        "x": 154.3,
+                        "y": 83.5
+                    },
+                    "uuid": "6ff66590-1525-44ae-845c-69c765bd0afc"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Takana olevan juotosmaskin aukko siltaa kohteita eri verkoilla",
+            "items": [
+                {
+                    "description": "Segmentti [<no net>] jostain J2, kohteessa B.Cu",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 83.5
+                    },
+                    "uuid": "83432938-7ef1-4313-911a-0cfb51652e5c"
+                },
+                {
+                    "description": "PTH-antura 1 [PMOD1_IN] J2:sta",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 83.5
+                    },
+                    "uuid": "f8d2442d-88bc-4332-a0c7-98d8222533e4"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Takana olevan juotosmaskin aukko siltaa kohteita eri verkoilla",
+            "items": [
+                {
+                    "description": "Segmentti [<no net>] jostain J2, kohteessa B.Cu",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 86.04
+                    },
+                    "uuid": "b0c56bbb-dd0b-48ae-a96a-22dddf58796c"
+                },
+                {
+                    "description": "PTH-antura 4 [PMOD7] J2:sta",
+                    "pos": {
+                        "x": 154.3,
+                        "y": 86.04
+                    },
+                    "uuid": "81ef6ac7-6893-4726-b757-3e3f64ac89ae"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Takana olevan juotosmaskin aukko siltaa kohteita eri verkoilla",
+            "items": [
+                {
+                    "description": "Segmentti [<no net>] jostain J2, kohteessa B.Cu",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 86.04
+                    },
+                    "uuid": "b0c56bbb-dd0b-48ae-a96a-22dddf58796c"
+                },
+                {
+                    "description": "PTH-antura 3 [PMOD7_IN] J2:sta",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 86.04
+                    },
+                    "uuid": "37ef41a8-1476-4b25-8cfd-3c0ee2c87f7d"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Takana olevan juotosmaskin aukko siltaa kohteita eri verkoilla",
+            "items": [
+                {
+                    "description": "Segmentti [<no net>] jostain J2, kohteessa B.Cu",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 88.58
+                    },
+                    "uuid": "a07c81aa-ac36-4a15-91aa-b4142203ecb8"
+                },
+                {
+                    "description": "PTH-antura 6 [PMOD8] J2:sta",
+                    "pos": {
+                        "x": 154.3,
+                        "y": 88.58
+                    },
+                    "uuid": "f923b407-69cf-4df5-80e7-f686d005fd9b"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Takana olevan juotosmaskin aukko siltaa kohteita eri verkoilla",
+            "items": [
+                {
+                    "description": "Segmentti [<no net>] jostain J2, kohteessa B.Cu",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 88.58
+                    },
+                    "uuid": "a07c81aa-ac36-4a15-91aa-b4142203ecb8"
+                },
+                {
+                    "description": "PTH-antura 5 [PMOD8_IN] J2:sta",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 88.58
+                    },
+                    "uuid": "427f51b6-b20b-463a-bcff-b7fbff6f2b25"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Takana olevan juotosmaskin aukko siltaa kohteita eri verkoilla",
+            "items": [
+                {
+                    "description": "Segmentti J2 kohde B.Mask",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 86.04
+                    },
+                    "uuid": "72a10b13-b7e9-4e17-a9c7-d0bbec08d8ce"
+                },
+                {
+                    "description": "Johdinraita [PMOD7] > B.Cu, pituus 0,4808 mm",
+                    "pos": {
+                        "x": 154.64,
+                        "y": 85.7
+                    },
+                    "uuid": "dfec8aad-799c-42d2-9b3b-a2def3b36ec8"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Takana olevan juotosmaskin aukko siltaa kohteita eri verkoilla",
+            "items": [
+                {
+                    "description": "Segmentti J2 kohde B.Mask",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 86.04
+                    },
+                    "uuid": "72a10b13-b7e9-4e17-a9c7-d0bbec08d8ce"
+                },
+                {
+                    "description": "PTH-antura 4 [PMOD7] J2:sta",
+                    "pos": {
+                        "x": 154.3,
+                        "y": 86.04
+                    },
+                    "uuid": "81ef6ac7-6893-4726-b757-3e3f64ac89ae"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Takana olevan juotosmaskin aukko siltaa kohteita eri verkoilla",
+            "items": [
+                {
+                    "description": "Segmentti J2 kohde B.Mask",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 88.58
+                    },
+                    "uuid": "5e206ae2-65ae-4787-80a3-ed18aa9a2f7f"
+                },
+                {
+                    "description": "Johdinraita [PMOD8] > B.Cu, pituus 3,0830 mm",
+                    "pos": {
+                        "x": 156.48,
+                        "y": 86.4
+                    },
+                    "uuid": "36ee025a-a672-42fc-a5c6-d09e12d29344"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Takana olevan juotosmaskin aukko siltaa kohteita eri verkoilla",
+            "items": [
+                {
+                    "description": "Segmentti J2 kohde B.Mask",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 88.58
+                    },
+                    "uuid": "5e206ae2-65ae-4787-80a3-ed18aa9a2f7f"
+                },
+                {
+                    "description": "PTH-antura 6 [PMOD8] J2:sta",
+                    "pos": {
+                        "x": 154.3,
+                        "y": 88.58
+                    },
+                    "uuid": "f923b407-69cf-4df5-80e7-f686d005fd9b"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Takana olevan juotosmaskin aukko siltaa kohteita eri verkoilla",
+            "items": [
+                {
+                    "description": "Segmentti J2 kohde B.Mask",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 83.5
+                    },
+                    "uuid": "ca5710e7-ccff-43d7-950d-38b9b7c7b0ea"
+                },
+                {
+                    "description": "PTH-antura 1 [PMOD1_IN] J2:sta",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 83.5
+                    },
+                    "uuid": "f8d2442d-88bc-4332-a0c7-98d8222533e4"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Takana olevan juotosmaskin aukko siltaa kohteita eri verkoilla",
+            "items": [
+                {
+                    "description": "Segmentti J2 kohde B.Mask",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 86.04
+                    },
+                    "uuid": "72a10b13-b7e9-4e17-a9c7-d0bbec08d8ce"
+                },
+                {
+                    "description": "Johdinraita [PMOD7] > B.Cu, pituus 0,4808 mm",
+                    "pos": {
+                        "x": 154.64,
+                        "y": 85.7
+                    },
+                    "uuid": "dfec8aad-799c-42d2-9b3b-a2def3b36ec8"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Takana olevan juotosmaskin aukko siltaa kohteita eri verkoilla",
+            "items": [
+                {
+                    "description": "Segmentti J2 kohde B.Mask",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 86.04
+                    },
+                    "uuid": "72a10b13-b7e9-4e17-a9c7-d0bbec08d8ce"
+                },
+                {
+                    "description": "PTH-antura 4 [PMOD7] J2:sta",
+                    "pos": {
+                        "x": 154.3,
+                        "y": 86.04
+                    },
+                    "uuid": "81ef6ac7-6893-4726-b757-3e3f64ac89ae"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segmentti päällä Edge.Cuts",
+                    "pos": {
+                        "x": 140.0,
+                        "y": 75.7
+                    },
+                    "uuid": "4d927307-b4e3-4191-a75b-a2badc39bd68"
+                },
+                {
+                    "description": "Segmentti J1 kohde F.Silkscreen",
+                    "pos": {
+                        "x": 134.331536,
+                        "y": 78.026755
+                    },
+                    "uuid": "f4be57bc-eb73-4402-9d82-9465f85602e7"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segmentti päällä Edge.Cuts",
+                    "pos": {
+                        "x": 140.0,
+                        "y": 75.7
+                    },
+                    "uuid": "4d927307-b4e3-4191-a75b-a2badc39bd68"
+                },
+                {
+                    "description": "Segmentti J1 kohde F.Silkscreen",
+                    "pos": {
+                        "x": 134.331536,
+                        "y": 80.566755
+                    },
+                    "uuid": "e0b5cb92-f8ae-4d59-8c99-a6463facfd25"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segmentti päällä Edge.Cuts",
+                    "pos": {
+                        "x": 140.0,
+                        "y": 75.7
+                    },
+                    "uuid": "4d927307-b4e3-4191-a75b-a2badc39bd68"
+                },
+                {
+                    "description": "Segmentti J1 kohde F.Silkscreen",
+                    "pos": {
+                        "x": 134.331536,
+                        "y": 83.106755
+                    },
+                    "uuid": "3cccd7b6-d13e-46e8-a147-e4cb77bc08d1"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segmentti päällä Edge.Cuts",
+                    "pos": {
+                        "x": 140.0,
+                        "y": 75.7
+                    },
+                    "uuid": "4d927307-b4e3-4191-a75b-a2badc39bd68"
+                },
+                {
+                    "description": "Segmentti J1 kohde F.Silkscreen",
+                    "pos": {
+                        "x": 134.331536,
+                        "y": 85.646755
+                    },
+                    "uuid": "60283c48-b443-43d2-a669-9de52e29607e"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segmentti päällä Edge.Cuts",
+                    "pos": {
+                        "x": 140.0,
+                        "y": 75.7
+                    },
+                    "uuid": "4d927307-b4e3-4191-a75b-a2badc39bd68"
+                },
+                {
+                    "description": "Segmentti J1 kohde F.Silkscreen",
+                    "pos": {
+                        "x": 134.331536,
+                        "y": 88.186755
+                    },
+                    "uuid": "8be55a71-921f-4e84-a920-638c631f3cb5"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segmentti päällä Edge.Cuts",
+                    "pos": {
+                        "x": 140.0,
+                        "y": 75.7
+                    },
+                    "uuid": "4d927307-b4e3-4191-a75b-a2badc39bd68"
+                },
+                {
+                    "description": "Segmentti J1 kohde F.Silkscreen",
+                    "pos": {
+                        "x": 134.331536,
+                        "y": 90.726755
+                    },
+                    "uuid": "a2032f8d-8a14-4069-8fce-280ff683e034"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segmentti päällä Edge.Cuts",
+                    "pos": {
+                        "x": 140.0,
+                        "y": 75.7
+                    },
+                    "uuid": "4d927307-b4e3-4191-a75b-a2badc39bd68"
+                },
+                {
+                    "description": "Segmentti J1 kohde F.Silkscreen",
+                    "pos": {
+                        "x": 140.331536,
+                        "y": 78.786755
+                    },
+                    "uuid": "6f0ea7bc-d547-4221-b443-5f23c35c98cd"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segmentti päällä Edge.Cuts",
+                    "pos": {
+                        "x": 140.0,
+                        "y": 75.7
+                    },
+                    "uuid": "4d927307-b4e3-4191-a75b-a2badc39bd68"
+                },
+                {
+                    "description": "Segmentti J1 kohde F.Silkscreen",
+                    "pos": {
+                        "x": 140.331536,
+                        "y": 81.326755
+                    },
+                    "uuid": "70a03a43-150e-4e52-9711-cb049ca4f652"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segmentti päällä Edge.Cuts",
+                    "pos": {
+                        "x": 140.0,
+                        "y": 75.7
+                    },
+                    "uuid": "4d927307-b4e3-4191-a75b-a2badc39bd68"
+                },
+                {
+                    "description": "Segmentti J1 kohde F.Silkscreen",
+                    "pos": {
+                        "x": 140.331536,
+                        "y": 83.866755
+                    },
+                    "uuid": "77500a7d-130d-424f-aad7-d9ac09c4d49e"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segmentti päällä Edge.Cuts",
+                    "pos": {
+                        "x": 140.0,
+                        "y": 75.7
+                    },
+                    "uuid": "4d927307-b4e3-4191-a75b-a2badc39bd68"
+                },
+                {
+                    "description": "Segmentti J1 kohde F.Silkscreen",
+                    "pos": {
+                        "x": 140.331536,
+                        "y": 86.406755
+                    },
+                    "uuid": "e7ddb22e-4d00-49c2-ab32-390842f78863"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segmentti päällä Edge.Cuts",
+                    "pos": {
+                        "x": 140.0,
+                        "y": 75.7
+                    },
+                    "uuid": "4d927307-b4e3-4191-a75b-a2badc39bd68"
+                },
+                {
+                    "description": "Segmentti J1 kohde F.Silkscreen",
+                    "pos": {
+                        "x": 140.331536,
+                        "y": 88.946755
+                    },
+                    "uuid": "20edbb88-7243-4c5c-93b9-9c1893ea9da3"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segmentti päällä Edge.Cuts",
+                    "pos": {
+                        "x": 140.0,
+                        "y": 75.7
+                    },
+                    "uuid": "4d927307-b4e3-4191-a75b-a2badc39bd68"
+                },
+                {
+                    "description": "Segmentti J1 kohde F.Silkscreen",
+                    "pos": {
+                        "x": 140.331536,
+                        "y": 90.826755
+                    },
+                    "uuid": "f741d894-8f50-4a31-99f5-7f83d3fd15da"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segmentti päällä Edge.Cuts",
+                    "pos": {
+                        "x": 140.0,
+                        "y": 75.7
+                    },
+                    "uuid": "4d927307-b4e3-4191-a75b-a2badc39bd68"
+                },
+                {
+                    "description": "Segmentti J1 kohde F.Silkscreen",
+                    "pos": {
+                        "x": 140.331536,
+                        "y": 90.946755
+                    },
+                    "uuid": "3e9ecf27-295d-416c-ae70-01087a9db64a"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segmentti päällä Edge.Cuts",
+                    "pos": {
+                        "x": 140.0,
+                        "y": 75.7
+                    },
+                    "uuid": "4d927307-b4e3-4191-a75b-a2badc39bd68"
+                },
+                {
+                    "description": "Segmentti J1 kohde F.Silkscreen",
+                    "pos": {
+                        "x": 140.331536,
+                        "y": 91.066755
+                    },
+                    "uuid": "0b3d06b7-d07b-4614-9d0f-629547366ddc"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segmentti päällä Edge.Cuts",
+                    "pos": {
+                        "x": 140.0,
+                        "y": 75.7
+                    },
+                    "uuid": "4d927307-b4e3-4191-a75b-a2badc39bd68"
+                },
+                {
+                    "description": "Segmentti J1 kohde F.Silkscreen",
+                    "pos": {
+                        "x": 140.331536,
+                        "y": 91.186755
+                    },
+                    "uuid": "84e66f92-96c2-4af8-bf3c-63ca6893800b"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segmentti päällä Edge.Cuts",
+                    "pos": {
+                        "x": 140.0,
+                        "y": 75.7
+                    },
+                    "uuid": "4d927307-b4e3-4191-a75b-a2badc39bd68"
+                },
+                {
+                    "description": "Segmentti J1 kohde F.Silkscreen",
+                    "pos": {
+                        "x": 140.331536,
+                        "y": 91.306755
+                    },
+                    "uuid": "994c4335-a94d-4378-90e9-32d13a83817e"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segmentti päällä Edge.Cuts",
+                    "pos": {
+                        "x": 140.0,
+                        "y": 75.7
+                    },
+                    "uuid": "4d927307-b4e3-4191-a75b-a2badc39bd68"
+                },
+                {
+                    "description": "Segmentti J1 kohde F.Silkscreen",
+                    "pos": {
+                        "x": 140.331536,
+                        "y": 91.426755
+                    },
+                    "uuid": "c8cc69ad-3ec1-4605-a6b1-7cc73e34296e"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segmentti päällä Edge.Cuts",
+                    "pos": {
+                        "x": 140.0,
+                        "y": 75.7
+                    },
+                    "uuid": "4d927307-b4e3-4191-a75b-a2badc39bd68"
+                },
+                {
+                    "description": "Segmentti J1 kohde F.Silkscreen",
+                    "pos": {
+                        "x": 140.331536,
+                        "y": 91.486755
+                    },
+                    "uuid": "6916f6b9-f1c5-4a68-a595-88a007889b80"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Jalanjälkeä 'SOIC-8_5.23x5.23mm_P1.27mm' ei löytynyt kirjastosta 'Package_SO'",
+            "items": [
+                {
+                    "description": "Jalanjälki U1",
+                    "pos": {
+                        "x": 162.705,
+                        "y": 78.9
+                    },
+                    "uuid": "07e44410-794a-4ed8-bf1c-9e20b2cdaf1c"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "Jalanjälkeä 'SOP-8_3.9x4.9mm_P1.27mm' ei löytynyt kirjastosta 'Package_SO'",
+            "items": [
+                {
+                    "description": "Jalanjälki U2",
+                    "pos": {
+                        "x": 160.7,
+                        "y": 86.8
+                    },
+                    "uuid": "0901c8a0-bb1d-445a-86aa-59085764611a"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "Footprint 'C_0402_1005Metric' does not match copy in library 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "Jalanjälki C1",
+                    "pos": {
+                        "x": 168.105,
+                        "y": 77.5
+                    },
+                    "uuid": "23ba2c90-61fb-4e54-95b3-18a40f5ce016"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "Footprint 'PinHeader_2x04_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'",
+            "items": [
+                {
+                    "description": "Jalanjälki J2",
+                    "pos": {
+                        "x": 151.76,
+                        "y": 83.5
+                    },
+                    "uuid": "33772815-e4f0-4809-9870-ac1001685594"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "Footprint 'C_0402_1005Metric' does not match copy in library 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "Jalanjälki C4",
+                    "pos": {
+                        "x": 162.105,
+                        "y": 92.2
+                    },
+                    "uuid": "36d1ea76-65b1-4cf7-9a73-31e53c800955"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "Footprint 'C_0402_1005Metric' does not match copy in library 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "Jalanjälki C5",
+                    "pos": {
+                        "x": 168.505,
+                        "y": 91.1
+                    },
+                    "uuid": "387c5321-c14a-4dc3-9844-bfc83b3b24d6"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "Jalanjälkikirjasto 'tt' ei ole käytössä nykyisessä kokoonpanossa",
+            "items": [
+                {
+                    "description": "Jalanjälki J1",
+                    "pos": {
+                        "x": 146.971536,
+                        "y": 91.106755
+                    },
+                    "uuid": "38cb5b62-5fae-4248-af9a-ddc620510a69"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "Footprint 'R_0402_1005Metric' does not match copy in library 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "Jalanjälki R2",
+                    "pos": {
+                        "x": 156.6,
+                        "y": 87.11
+                    },
+                    "uuid": "44077e25-d94a-475d-9587-1a0da19198c0"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "Footprint 'C_0402_1005Metric' does not match copy in library 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "Jalanjälki C2",
+                    "pos": {
+                        "x": 169.205,
+                        "y": 77.5
+                    },
+                    "uuid": "68b49318-ed21-4f7c-a256-912bc744f0bf"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "Footprint 'C_0402_1005Metric' does not match copy in library 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "Jalanjälki C3",
+                    "pos": {
+                        "x": 162.105,
+                        "y": 91.1
+                    },
+                    "uuid": "96bde622-7ebb-4044-a55e-9e0b0f3e0323"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "Jalanjälkeä 'SOP-8_3.9x4.9mm_P1.27mm' ei löytynyt kirjastosta 'Package_SO'",
+            "items": [
+                {
+                    "description": "Jalanjälki U3",
+                    "pos": {
+                        "x": 167.005,
+                        "y": 86.8
+                    },
+                    "uuid": "a18db183-30f7-4298-9c46-3231f64420d7"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "Footprint 'R_0402_1005Metric' does not match copy in library 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "Jalanjälki R3",
+                    "pos": {
+                        "x": 156.6,
+                        "y": 84.3
+                    },
+                    "uuid": "ae58c444-c19f-4bdb-b6f7-d4fd3b60ac06"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "Footprint 'R_0402_1005Metric' does not match copy in library 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "Jalanjälki R1",
+                    "pos": {
+                        "x": 156.6,
+                        "y": 89.2
+                    },
+                    "uuid": "bcbbcb5a-8695-47f9-b678-5ab8b0828792"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "Footprint 'C_0402_1005Metric' does not match copy in library 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "Jalanjälki C7",
+                    "pos": {
+                        "x": 156.591,
+                        "y": 92.075
+                    },
+                    "uuid": "d83dcb81-bb00-401c-be11-619db1d4d942"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "Footprint 'C_0402_1005Metric' does not match copy in library 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "Jalanjälki C6",
+                    "pos": {
+                        "x": 168.505,
+                        "y": 92.2
+                    },
+                    "uuid": "e3e06b56-1563-4f5d-8765-50064a867635"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        }
+    ]
+}
