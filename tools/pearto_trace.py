@@ -157,10 +157,42 @@ def rdp(pts, eps):
             stack += [(i, i + 1 + k), (i + 1 + k, j)]
     return [tuple(p) for p in pts[keep]]
 
+def round_bottom(pts, frac):
+    """Replace the contour's lower portion with a smooth half-ellipse belly."""
+    ys = [p[1] for p in pts]
+    y0, y1 = min(ys), max(ys)
+    ysplit = y0 + frac * (y1 - y0)
+    n = len(pts)
+    # rotate so index 0 is above the split
+    k = next(i for i, p in enumerate(pts) if p[1] < ysplit)
+    pts = pts[k:] + pts[:k]
+    keep = [p for p in pts if p[1] <= ysplit]
+    # boundary points: last kept before the removed run and first after
+    below = [i for i, p in enumerate(pts) if p[1] > ysplit]
+    if not below:
+        return pts
+    pa = pts[below[0] - 1]
+    pb = pts[(below[-1] + 1) % len(pts)]
+    cx = (pa[0] + pb[0]) / 2.0
+    a = abs(pb[0] - pa[0]) / 2.0
+    b_ax = a * 0.9  # near-semicircular belly
+    arc = []
+    for t in range(1, 24):
+        ang = np.pi * t / 24.0
+        sgn = 1 if pa[0] > pb[0] else -1
+        arc.append((cx + sgn * a * np.cos(ang), ysplit + b_ax * np.sin(ang)))
+    out = []
+    for p in pts:
+        if p[1] <= ysplit:
+            out.append(p)
+        if p == pa:
+            out += arc
+    return out
+
 EPS = 2.2
 shapes = {}
-shapes["pear"] = rdp(trace(pear), EPS)
-shapes["face"] = rdp(trace(face), EPS)
+shapes["pear"] = round_bottom(rdp(trace(pear), EPS), 0.72)
+shapes["face"] = round_bottom(rdp(trace(face), EPS), 0.72)
 shapes["stem"] = rdp(trace(stem), EPS)
 
 # parametric face features: two biggest very-dark blobs in the upper face
@@ -172,19 +204,23 @@ for e in eyes:
     circles.append({"cx": e["cx"], "cy": e["cy"], "r": r_eye, "fill": False})
     circles.append({"cx": e["cx"], "cy": e["cy"], "r": r_eye * 0.45, "fill": True})
 
-# mouth: looser darkness pass below the eyes, away from eye blobs
+# mouth: locate it (looser darkness below the eyes), draw as a smile arc
 eye_y = max(e["cy"] for e in eyes)
 dark2 = face & (v < 0.58)
 dark2[:int(eye_y + 40), :] = False
 lab2, sizes2 = components(dark2)
 mouth_blobs = sorted(sizes2.items(), key=lambda kv: -kv[1])
 print("mouth candidates:", mouth_blobs[:3])
+arcs = []
 if mouth_blobs and mouth_blobs[0][1] > 30:
     k = mouth_blobs[0][0]
     ys2, xs2 = np.nonzero(lab2 == k)
-    r_m = max(float(np.sqrt(mouth_blobs[0][1] / np.pi)) * 1.3, 9.0)
-    circles.append({"cx": float(xs2.mean()), "cy": float(ys2.mean()),
-                    "r": r_m, "fill": True})
+    mcx, mcy = float(xs2.mean()), float(ys2.mean())
+    hw = 32.0   # smile half-width, px
+    dip = 14.0  # smile depth, px
+    arcs.append({"p1": (mcx - hw, mcy - dip * 0.35),
+                 "pm": (mcx, mcy + dip),
+                 "p2": (mcx + hw, mcy - dip * 0.35)})
 print("circles:", [(round(c['cx']), round(c['cy']), round(c['r'], 1), c['fill'])
                    for c in circles])
 for k, v_ in shapes.items():
@@ -202,10 +238,20 @@ for c in circles:
         dr.ellipse(box, fill="black")
     else:
         dr.ellipse(box, outline="black", width=2)
+for a_ in arcs:
+    pts = [a_["p1"], a_["pm"], a_["p2"]]
+    # quadratic-ish bezier through the 3 pts for preview
+    P = np.array(pts, float)
+    ctrl = 2 * P[1] - 0.5 * P[0] - 0.5 * P[2]
+    curve = [(float((1-t)**2*P[0][0] + 2*(1-t)*t*ctrl[0] + t**2*P[2][0]),
+              float((1-t)**2*P[0][1] + 2*(1-t)*t*ctrl[1] + t**2*P[2][1]))
+             for t in np.linspace(0, 1, 20)]
+    dr.line(curve, fill="black", width=3)
 pv.save(OUTDIR + r"\pearto_preview.png")
 
-json.dump({"polylines": {k: [(round(x, 1), round(y, 1)) for (x, y) in pts]
+json.dump({"polylines": {k: [(round(float(x), 1), round(float(y), 1))
+                             for (x, y) in pts]
                          for k, pts in shapes.items()},
-           "circles": circles, "size": [W, H]},
+           "circles": circles, "arcs": arcs, "size": [W, H]},
           open(OUTDIR + r"\pearto_contours.json", "w"))
 print("saved preview + contours;  image", W, "x", H)
