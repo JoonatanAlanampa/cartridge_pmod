@@ -4981,15 +4981,15 @@
 			(uuid "f42657db-1b0e-45cc-8f7b-43674fc2ecb9")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/LCSC.3dshapes/PJ-320B--3DModel-STEP-56544.STEP"
+		(model "${KIPRJMOD}/easyeda/ea.3dshapes/AUDIO-SMD_PJ-320B_C2884998.step"
 			(offset
-				(xyz 0 0 2.5)
+				(xyz -0.6 0 3.3)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 180)
+				(xyz 0 0 270)
 			)
 		)
 	)

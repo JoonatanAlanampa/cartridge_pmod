@@ -7,12 +7,12 @@ D = "${KICAD10_3DMODEL_DIR}"
 EXACT = {
     "U1": D + "/Package_SO.3dshapes/SOIC-8_5.3x5.3mm_P1.27mm.step",
     "U2": D + "/Package_SO.3dshapes/SOIC-8_3.9x4.9mm_P1.27mm.step",
+    # exact LCSC C2884998 model fetched via easyeda2kicad
+    "J3": "${KIPRJMOD}/easyeda/ea.3dshapes/AUDIO-SMD_PJ-320B_C2884998.step",
 }
 TUNE = {  # ref: (rx, ry, rz, ox, oy, oz)  -- FINAL calibrated values
-    # J3: align mounting posts into the NPTH holes (the model's solder tabs
-    # sit 2.6mm off the footprint pads -- model variant mismatch, cosmetic)
     "RV1": (-90, 0, 0, 0, 0, -0.3),
-    "J3":  (0, 0, 180, 0, 0, 2.5),
+    "J3":  (0, 0, 270, -0.6, 0, 3.3),
 }
 import sys
 if len(sys.argv) > 1:
