@@ -1,4 +1,4 @@
-(kicad_pcb
+﻿(kicad_pcb
 	(version 20260206)
 	(generator "pcbnew")
 	(generator_version "10.0")
@@ -97,8 +97,8 @@
 			(outputdirectory "fab/")
 		)
 	)
-	(property "REVISION" "v2.2")
-	(property "TITLE" "QSPI-Pmod")
+	(property "REVISION" "v0.1")
+	(property "TITLE" "Cartridge-Pmod")
 	(footprint "Package_SO:SOIC-8_5.23x5.23mm_P1.27mm"
 		(layer "F.Cu")
 		(uuid "07e44410-794a-4ed8-bf1c-9e20b2cdaf1c")
