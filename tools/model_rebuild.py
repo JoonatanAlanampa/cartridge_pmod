@@ -8,9 +8,9 @@ EXACT = {
     "U1": D + "/Package_SO.3dshapes/SOIC-8_5.3x5.3mm_P1.27mm.step",
     "U2": D + "/Package_SO.3dshapes/SOIC-8_3.9x4.9mm_P1.27mm.step",
 }
-TUNE = {  # ref: (rx, ry, rz, ox, oy, oz)
-    "RV1": (-90, 0, 0, 0, 0, 0),
-    "J3":  (0, 0, 180, 0, 0, 0),
+TUNE = {  # ref: (rx, ry, rz, ox, oy, oz)  -- FINAL calibrated values
+    "RV1": (-90, 0, 0, 0, 0, -0.3),
+    "J3":  (0, 0, 180, 0, 2.6, 2.5),
 }
 import sys
 if len(sys.argv) > 1:

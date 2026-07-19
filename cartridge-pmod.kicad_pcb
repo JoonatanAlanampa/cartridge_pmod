@@ -4983,7 +4983,7 @@
 		(embedded_fonts no)
 		(model "${KIPRJMOD}/LCSC.3dshapes/PJ-320B--3DModel-STEP-56544.STEP"
 			(offset
-				(xyz 0 2.6 0)
+				(xyz 0 2.6 2.5)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -6097,7 +6097,7 @@
 		(embedded_fonts no)
 		(model "${KIPRJMOD}/LCSC.3dshapes/3362P-1-201LF.step"
 			(offset
-				(xyz 0 0 0)
+				(xyz 0 0 -0.3)
 			)
 			(scale
 				(xyz 1 1 1)
