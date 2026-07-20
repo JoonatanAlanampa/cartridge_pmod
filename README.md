@@ -5,6 +5,20 @@ prototype. Drop-in compatible with the stock [QSPI Pmod](https://github.com/mole
 pinout for any flash + single-PSRAM project; PMOD8 (uio[7]) carries sigma-delta
 audio out instead of the second PSRAM chip select.
 
+![Board, top](img/render_top.png)
+
+**v0.1 is at the fab**: ordered from JLCPCB 2026-07-20 (5 PCBs, 2 assembled),
+tag [`fab-v0.1`](../../releases/tag/fab-v0.1). A self-checking ULX3S bring-up
+bitstream is ready in [`fpga/`](fpga/README.md).
+
+| | |
+|---|---|
+| ![3D view](img/render_iso.png) | ![Back with pearto](img/render_back.png) |
+| ![PCB layout](img/pcb_layout.png) | ![Schematic](img/schematic.png) |
+
+Full-size: [schematic PDF](cartridge-pmod.pdf) ·
+[layout](img/pcb_layout.png) · [schematic PNG](img/schematic.png)
+
 Remix of two Apache-2.0 designs:
 - Memory section: [mole99/qspi-pmod](https://github.com/mole99/qspi-pmod) v2.2
   (W25Q128 16 MB flash + APS6404L 8 MB PSRAM, CONFIG jumper block, CS pull-ups)
@@ -43,14 +57,21 @@ loading it.
 
 ## Status
 
-- [x] Schematic complete (`cartridge-pmod.kicad_sch`), netlist verified by
-      `tools/netlist_check.py` (no KiCad install needed for that check)
-- [ ] PCB layout: open in KiCad ≥ 9, run ERC, then *Update PCB from
-      Schematic* (removes PSRAM B, adds audio parts — memory routing from the
-      proven qspi-pmod layout is preserved), place audio section, extend board
-      outline for the jack, route, DRC
-- [ ] Fab: JLCPCB, SMT assembly (all parts have LCSC numbers); hand-solder the
-      Pmod header + jack if through-hole assembly is skipped
+- [x] Schematic complete, netlist machine-verified against both upstream
+      designs (`tools/netlist_check.py`)
+- [x] PCB layout: 56.3 × 20.1 mm, fully placed + routed (largely via pcbnew
+      scripting), ERC 0 / DRC 0-unconnected, 0 silk warnings; only remaining
+      DRC errors are the intentional CONFIG cut-trace feature + one upstream
+      starved-thermal
+- [x] Fab: **ordered at JLCPCB 2026-07-20** (tag `fab-v0.1`) — 5 PCBs,
+      2 assembled (Economic, incl. the THT Pmod header), $71.76 all-in;
+      see [FABRICATION.md](FABRICATION.md) for the export recipe and the
+      ordering lessons (J1 rotation, PSRAM LCSC number, PCBA remark)
+- [x] ULX3S bring-up harness: flash/PSRAM ID + memory test + 440 Hz test
+      tone + UART report, plug orientation autodetected; simulated in both
+      orientations (cocotb + icarus), 898 LUTs — see [fpga/](fpga/README.md)
+- [ ] Boards arrive (~3 weeks): run the
+      [first-power-up checklist](fpga/README.md#first-power-up-checklist-per-board--do-steps-1-2-before-plugging-in)
 
 ## Tools
 
