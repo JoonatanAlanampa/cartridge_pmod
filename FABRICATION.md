@@ -1,6 +1,34 @@
 # Fabrication export guide (JLCPCB, PCB + SMT assembly)
 
-Target: 5 boards, assembled front side, ~€20–30 + shipping. Everything below
+## ORDERED 2026-07-20 (v0.1, commit 8dd7671, tag fab-v0.1)
+
+5 PCBs + 2 assembled (Economic, top side), $71.76 all-in via Global Standard
+Direct Line (13-16 business days). Breakdown: $52.34 merchandise, $16.26
+shipping (incl $6.93 prepaid customs-duty deposit), $18.42->$13.16 VAT via
+IOSS, -$10 coupon. NOTE: since 2026-07-01 the EU charges customs duty below
+EUR 150 too — Direct Line prepays it; courier (non-DDP) options risk a
+disbursement fee at the door; DHL DDP was quoted +$24.50 over Direct Line.
+
+Lessons from the actual order (v0.1):
+- J1 rendered 90 deg rotated in the JLC placement preview (custom TT
+  footprint, not in their rotation DB) — fixed with the preview's rotate
+  button: pins must extend off the LEFT board edge. Re-check every order.
+- Pin-1 ground truth for the preview check (board title bottom-left):
+  U1 dot TOP-LEFT, U2 dot TOP-RIGHT, U4 3-pin side LEFT + dot TOP-LEFT.
+- U2 PSRAM has no LCSC number in our BOM (upstream sourced via Mouser):
+  match manually to APS6404L-3SQR-SN = LCSC C5333729 (~$2.94).
+- C1/C5, C2/C6, R1-R3 raise "comment mismatch" warnings (our BOM carries
+  MPNs, not LCSC codes) — matched parts C1525 / C52923 / C25744 verified
+  correct, just tick to confirm.
+- PCBA remark used (J2 is NOT in the uploaded BOM/CPL, describe visually):
+  "J1 (the only THT part in the BOM, right-angle pin header): body sits on
+  the board, pins intentionally extend past the LEFT board edge, orientation
+  as set in the placement preview. J3 (audio jack): barrel intentionally
+  overhangs the RIGHT board edge. The unpopulated 2x4 through-hole pad grid
+  next to the 'F A B CK' silk labels is a solder-jumper feature -
+  intentionally empty, do not populate. No other special requirements."
+
+Target: 5 boards, assembled front side. Everything below
 was verified against this project with KiCad 10.0.4 on Windows.
 
 ## Pre-flight (already done for v0.1, re-check after any edit)
