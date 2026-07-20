@@ -5,3 +5,6 @@ fp-info-cache
 _autosave*
 .history/
 production/backups/
+fpga/build/
+fpga/test/sim_build/
+fpga/test/results*.xml
