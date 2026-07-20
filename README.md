@@ -8,7 +8,7 @@ audio out instead of the second PSRAM chip select.
 ![Board, top](img/render_top.png)
 
 **v0.1 is at the fab**: ordered from JLCPCB 2026-07-20 (5 PCBs, 2 assembled),
-tag [`fab-v0.1`](../../releases/tag/fab-v0.1). A self-checking ULX3S bring-up
+tag [`fab-v0.1`](https://github.com/JoonatanAlanampa/cartridge_pmod/releases/tag/fab-v0.1). A self-checking ULX3S bring-up
 bitstream is ready in [`fpga/`](fpga/README.md).
 
 | | |
