@@ -47,6 +47,9 @@ IOBUF PORT "led[7]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
 # FPGA -> FTDI -> PC serial (115200 8N1)
 LOCATE COMP "ftdi_rxd" SITE "L4";
 IOBUF  PORT "ftdi_rxd" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
+# PC -> FTDI -> FPGA (flash-writer commands)
+LOCATE COMP "ftdi_txd" SITE "M1";
+IOBUF  PORT "ftdi_txd" PULLMODE=UP IO_TYPE=LVCMOS33;
 
 # J1 header GP/GN 0-3 (single-ended, BANK0)
 LOCATE COMP "pmod_gp[0]" SITE "B11";

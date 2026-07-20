@@ -11,7 +11,7 @@ $env:PATH = "$oss\bin;$oss\lib;" + $env:PATH
 Set-Location (Split-Path $PSScriptRoot -Parent)
 New-Item -ItemType Directory -Force fpga\build | Out-Null
 
-yosys -q -p "read_verilog -sv fpga/spi_byte.sv fpga/uart_tx.sv fpga/bringup_top.sv; synth_ecp5 -top bringup_top -json fpga/build/bringup.json"
+yosys -q -p "read_verilog -sv fpga/spi_byte.sv fpga/uart_tx.sv fpga/uart_rx.sv fpga/bringup_top.sv; synth_ecp5 -top bringup_top -json fpga/build/bringup.json"
 if ($LASTEXITCODE -ne 0) { throw "yosys failed" }
 
 nextpnr-ecp5 --85k --package CABGA381 --json fpga/build/bringup.json `

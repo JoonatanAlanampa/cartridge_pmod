@@ -3,41 +3,22 @@
 # this test which mapping letter the report must claim.
 import cocotb
 from cocotb.clock import Clock
-from cocotb.triggers import FallingEdge, Timer
+from cocotb.triggers import Timer
 
-BIT_NS = 8681  # 115200 baud
-
-
-async def uart_recv_line(dut, timeout_ms=40):
-    """Collect one LF-terminated line from ftdi_rxd."""
-    chars = []
-    deadline = cocotb.utils.get_sim_time("ns") + timeout_ms * 1e6
-    while True:
-        if cocotb.utils.get_sim_time("ns") > deadline:
-            raise TimeoutError(f"UART timeout, got so far: {''.join(chars)!r}")
-        await FallingEdge(dut.ftdi_rxd)         # start bit
-        await Timer(BIT_NS + BIT_NS // 2, "ns")  # middle of bit 0
-        val = 0
-        for i in range(8):
-            val |= int(dut.ftdi_rxd.value) << i
-            await Timer(BIT_NS, "ns")
-        ch = chr(val)
-        if ch == "\n":
-            return "".join(chars)
-        if ch != "\r":
-            chars.append(ch)
+from uart_util import UartRx
 
 
-@cocotb.test()
+@cocotb.test(timeout_time=60, timeout_unit="ms")
 async def bringup_report(dut):
     mapb = int(cocotb.plusargs.get("MAPB", 0))
     expect_map = "B" if mapb else "A"
 
     cocotb.start_soon(Clock(dut.clk, 40, "ns").start())
+    rx = UartRx(dut)
 
     lines = []
     while True:
-        line = await uart_recv_line(dut)
+        line = await rx.line(timeout_ms=40)
         if line:
             lines.append(line)
             dut._log.info("UART: %s", line)

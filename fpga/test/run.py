@@ -11,6 +11,7 @@ FPGA_DIR = TEST_DIR.parent
 SOURCES = [
     FPGA_DIR / "spi_byte.sv",
     FPGA_DIR / "uart_tx.sv",
+    FPGA_DIR / "uart_rx.sv",
     FPGA_DIR / "bringup_top.sv",
     TEST_DIR / "tb.sv",
 ]
@@ -33,6 +34,13 @@ def main():
             plusargs=[f"+MAPB={mapb}"],
             results_xml=f"results_map{'ba'[mapb == 0]}.xml",
         )
+    runner.test(
+        hdl_toplevel="tb",
+        test_module="test_flasher",
+        test_dir=TEST_DIR,
+        plusargs=["+MAPB=0"],
+        results_xml="results_flasher.xml",
+    )
 
 
 if __name__ == "__main__":

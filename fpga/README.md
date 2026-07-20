@@ -1,9 +1,13 @@
-# Cartridge Pmod bring-up on the ULX3S 85F
+# Cartridge Pmod bring-up + flash-writer on the ULX3S 85F
 
 Self-checking harness: probes the flash + PSRAM, runs a memory test, plays a
 440 Hz test tone into the audio jack, and prints a verdict on the USB serial
-port. Simulated against behavioral W25Q128/APS6404 models in both plug
-orientations (`test/`), bitstream builds clean (898 LUTs, Fmax 113 MHz).
+port. After the tests, the same bitstream turns the UART into a **flash
+writer** — `flash_cartridge.py` pushes any binary image into the cartridge's
+W25Q128, which is how program images get onto the cartridge for
+TinyRV32-XIP boot (see `tt-riscv/fpga/`). Simulated against behavioral
+W25Q128/APS6404 models: both plug orientations + a full
+erase/program/verify pass (`test/`).
 
 ## Build & flash
 
@@ -48,6 +52,34 @@ Simulate: `python fpga\test\run.py` (runs both plug orientations).
    (F and A rows must be in their default state), re-seat the Pmod, check
    3.3V on the cartridge VCC pin while powered.
 
+## Flashing a program image
+
+After the bring-up report (any time the LEDs show DONE), the UART accepts
+binary flash-writer commands. From the PC:
+
+```powershell
+pip install pyserial          # once
+python fpga\flash_cartridge.py COM7 hello.bin          # erase+write+verify
+python fpga\flash_cartridge.py COM7 img.bin --base 0x10000
+```
+
+(Find the COM port in Device Manager — the ULX3S FTDI channel; on Linux
+`/dev/ttyUSB0`.) The script waits out the report, handshakes on the JEDEC
+ID, erases the covered 4 KB sectors, programs 256-byte pages, and reads
+everything back. Protocol (MSB-first fields, handled in `bringup_top.sv`
+with WREN + SR1 busy-polling internal):
+
+| cmd | bytes | reply |
+|-----|-------|-------|
+| `I` | —     | 3 ID bytes (`EF 40 18`) |
+| `E` | addr24 | `K` after sector erase completes |
+| `P` | addr24 + 256 data | `K` after page program completes |
+| `R` | addr24 | 256 bytes read from addr |
+
+Then flash `tt-riscv`'s `rv32_cartridge.bit` — TinyRV32 boots the image
+in place. Day-one sequence: bring-up PASS -> flash hello.bin -> swap
+bitstream -> "Hello" on the same serial port.
+
 ## What this proves / what's next
 
 PASS here = the cartridge hardware is fully validated for the console
@@ -56,8 +88,6 @@ compatibility (pins 1-7 identical to the stock QSPI Pmod).
 
 Next steps on this same setup:
 - quad-mode + clock sweep (the bring-up runs 12.5 MHz single-bit SPI)
-- retarget `tt-riscv/fpga` XIP harness to these pins (needs the 1-PSRAM
-  fallback — TinyRV32 as written expects two PSRAMs)
 - race-the-beam console prototype (video via ULX3S GPDI while waiting for
   the Tiny VGA Pmod)
 

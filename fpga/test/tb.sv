@@ -5,7 +5,10 @@
 `default_nettype none
 
 // ---------------------------------------------------------------------------
-// minimal SPI-mode-0 slave: W25Q128 flash (9F ID, AB wake, 03 read)
+// SPI-mode-0 slave: W25Q128 flash — 9F ID, AB wake, 03 read, plus the
+// program/erase set the flash-writer uses: 06 WREN, 20 4KB sector erase,
+// 02 page program (AND semantics, wraps in the 256B page), 05 read SR1
+// (bit0 busy, bit1 WEL). Erase/program model a short busy time.
 module flash_model (
     input  wire cs_n, sck, si,
     output wire so_oe, so_val
@@ -16,10 +19,20 @@ module flash_model (
     logic [23:0] addr;
     logic [7:0]  shin, shout;
     logic        out_en;
-    logic [7:0]  mem [0:255];
-    initial for (int i = 0; i < 256; i++) mem[i] = 8'hFF;
+    logic        wel = 0;
+    logic        busy = 0;
+    realtime     busy_dur;
+    event        start_busy;
+    logic [7:0]  mem [0:8191];          // 2 sectors' worth is plenty
+    initial for (int i = 0; i < 8192; i++) mem[i] = 8'hFF;
     initial begin mem[0]=8'hDE; mem[1]=8'hAD; mem[2]=8'hBE; mem[3]=8'hEF; end
 
+    // one-shot busy timer ($realtime in a wire expression would never
+    // re-evaluate — it is not a signal)
+    always @(start_busy) begin
+        busy = 1;
+        #(busy_dur) busy = 0;
+    end
     assign so_oe  = !cs_n && out_en;
     assign so_val = shout[7];
 
@@ -34,8 +47,37 @@ module flash_model (
             bitcnt = 0;
             bytecnt = bytecnt + 1;
             if (bytecnt == 1) cmd = shin;
-            else if (cmd == 8'h03 && bytecnt <= 4)
+            else if ((cmd == 8'h03 || cmd == 8'h20 || cmd == 8'h02)
+                     && bytecnt <= 4)
                 addr = {addr[15:0], shin};
+            else if (cmd == 8'h02 && bytecnt > 4 && wel && !busy) begin
+                mem[addr[12:0]] = mem[addr[12:0]] & shin;   // program = clear bits
+                addr = {addr[23:8], addr[7:0] + 8'd1};      // wrap in page
+            end
+        end
+    end
+
+    always @(posedge cs_n) begin        // command takes effect on deselect
+        if ($test$plusargs("FDBG") && bytecnt >= 1)
+            $display("[flash %0t] cs^ cmd=%02x bytes=%0d wel=%b busy=%b addr=%06x",
+                     $time, cmd, bytecnt, wel, busy, addr);
+        if (bytecnt >= 1) begin
+            case (cmd)
+                8'h06: wel = 1;
+                8'h20: if (wel && !busy && bytecnt >= 4) begin
+                    for (int i = 0; i < 4096; i++)
+                        mem[{addr[12], 12'h0} + i] = 8'hFF;
+                    busy_dur = 30_000;                      // 30 us
+                    -> start_busy;
+                    wel = 0;
+                end
+                8'h02: if (wel && !busy && bytecnt > 4) begin
+                    busy_dur = 10_000;                      // 10 us
+                    -> start_busy;
+                    wel = 0;
+                end
+                default: ;
+            endcase
         end
     end
 
@@ -51,10 +93,14 @@ module flash_model (
                         default: shout = 8'h00;
                     endcase
                 end
+                8'h05: begin
+                    out_en = (bytecnt >= 1);
+                    shout = {6'b0, wel, busy};
+                end
                 8'h03: begin
                     out_en = (bytecnt >= 4);
                     if (bytecnt >= 4) begin
-                        shout = mem[addr[7:0]];
+                        shout = busy ? 8'hFF : mem[addr[12:0]];
                         addr  = addr + 1;
                     end
                 end
@@ -141,11 +187,12 @@ module tb;
     logic [6:0] btn = 7'b0000001;   // btn[0] high = not pressed
     wire  [7:0] led;
     wire        ftdi_rxd, wifi_gpio0;
+    logic       ftdi_txd = 1'b1;    // PC -> FPGA serial, idles high
     tri1  [3:0] gp, gn;             // header pullups (LPF PULLMODE=UP)
 
     bringup_top #(.BOOT_CYCLES(64)) dut (
         .clk_25mhz(clk), .btn(btn), .led(led),
-        .ftdi_rxd(ftdi_rxd),
+        .ftdi_rxd(ftdi_rxd), .ftdi_txd(ftdi_txd),
         .pmod_gp(gp), .pmod_gn(gn),
         .wifi_gpio0(wifi_gpio0)
     );
