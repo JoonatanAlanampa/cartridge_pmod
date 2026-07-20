@@ -1048,6 +1048,17 @@
 				)
 			)
 		)
+		(property "LCSC Part" "C2941578"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "056ac3c3-6d81-4351-b344-8c061af44b67")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -1192,6 +1203,17 @@
 				(font
 					(size 1 1)
 					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C23179"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "a25091a1-ca7c-4aa5-bdef-e935dc78da9e")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)
@@ -1909,7 +1931,7 @@
 		(path "/3debf8cc-7f11-4796-86b9-56203eaf48ad")
 		(sheetname "/")
 		(sheetfile "qspi-pmod.kicad_sch")
-		(attr through_hole)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 12.64 13.08)
@@ -3240,6 +3262,17 @@
 				)
 			)
 		)
+		(property "LCSC Part" "C14663"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "84983f68-379a-4771-85eb-a5783a7d87cf")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -3383,6 +3416,17 @@
 				(font
 					(size 1 1)
 					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C1622"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "fd6de87c-1818-45d0-addd-86373e75456a")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)
@@ -3532,6 +3576,17 @@
 				)
 			)
 		)
+		(property "LCSC Part" "C23140"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "01bc447a-cb60-4436-b09e-612d20b2c387")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -3675,6 +3730,17 @@
 				(font
 					(size 1 1)
 					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C842506"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "41da1da9-a10d-497a-9075-12cce0ead891")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)
@@ -4276,6 +4342,17 @@
 				)
 			)
 		)
+		(property "LCSC Part" "C14663"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "0d137c17-5c79-455a-80ac-126b655761a6")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -4636,6 +4713,17 @@
 				)
 			)
 		)
+		(property "LCSC Part" "C15850"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "ad04f06f-6da5-47ed-83ca-fb064d1942b0")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -4762,6 +4850,17 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "8136d4d1-d3ec-411f-8d71-8b46d62942fd")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part" "C2884998"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "e72dfe38-2e18-48f8-a992-a9def69a5938")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5056,6 +5155,17 @@
 				)
 			)
 		)
+		(property "LCSC Part" "C16780"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "81e6d46f-97ce-4ed1-bb2e-8b94821765dd")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -5202,6 +5312,17 @@
 				)
 			)
 		)
+		(property "LCSC Part" "C14663"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "84372783-3986-4bc1-90b5-ac83e7affc20")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -5345,6 +5466,17 @@
 				(font
 					(size 1 1)
 					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C22787"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "17b78dd9-496f-4995-9200-31752da94194")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)
@@ -5906,6 +6038,17 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "8a643ef4-1c4e-4231-9520-61fec6235ac1")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part" "C124581"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "cdc094aa-56a5-40ca-9344-8c9efadb33eb")
 			(effects
 				(font
 					(size 1.27 1.27)

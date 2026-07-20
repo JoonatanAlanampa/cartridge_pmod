@@ -12,7 +12,13 @@ was verified against this project with KiCad 10.0.4 on Windows.
    (`kicad-cli pcb drc cartridge-pmod.kicad_pcb`).
 3. Zones refilled (open PCB in GUI, press **B**, save — or any tools/ script
    that ends with `ZONE_FILLER`).
-4. Board committed + pushed.
+4. Supplier fields present **on the board**, not only the schematic: the
+   Fabrication Toolkit reads footprint fields, so `LCSC Part` must be pushed
+   across with Tools → Update PCB from Schematic (F8, "update fields" ticked).
+   Without it the audio-section LCSC numbers export blank. Fixed 2026-07-20.
+5. J1 (hand-soldered Pmod header) and J2 (CONFIG solder jumpers) are marked
+   DNP, so they drop out of both the BOM and the placement file.
+6. Board committed + pushed.
 
 ## Option A — Fabrication Toolkit plugin (recommended, one click)
 
