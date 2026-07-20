@@ -16,9 +16,12 @@ was verified against this project with KiCad 10.0.4 on Windows.
    Fabrication Toolkit reads footprint fields, so `LCSC Part` must be pushed
    across with Tools → Update PCB from Schematic (F8, "update fields" ticked).
    Without it the audio-section LCSC numbers export blank. Fixed 2026-07-20.
-5. J1 (hand-soldered Pmod header) and J2 (CONFIG solder jumpers) are marked
-   DNP, so they drop out of both the BOM and the placement file.
-6. Board committed + pushed.
+5. J1 (Pmod header) is **JLC-assembled** (DNP cleared 2026-07-20, LCSC
+   C60565, THT economic assembly). J2 (CONFIG solder jumpers) stays DNP —
+   export with the exclude-DNP option so it drops out of BOM + placement.
+6. Silkscreen is DRC-clean (0 silk warnings since 2026-07-20: J1's off-edge
+   pin drawings deleted, all audio-section labels placed, C13/R6 shown).
+7. Board committed + pushed.
 
 ## Option A — Fabrication Toolkit plugin (recommended, one click)
 
@@ -30,6 +33,20 @@ was verified against this project with KiCad 10.0.4 on Windows.
    - `bom.csv` (grouped by value+footprint, with the **LCSC Part** field)
    - `positions.csv` (component placement / CPL, JLC-rotation-corrected)
 4. Upload to jlcpcb.com — see "Ordering" below.
+
+Headless equivalent (no GUI; same output, verified 2026-07-20):
+
+```powershell
+& "$env:LOCALAPPDATA\Programs\KiCad\10.0\bin\python.exe" -c @'
+import sys, runpy
+sys.path.insert(0, r"C:\Users\Joonatan Alanampa\Documents\KiCad\10.0\3rdparty\plugins")
+sys.argv = ["cli", "-p", r"cartridge-pmod.kicad_pcb", "-t", "-f", "-e", "-nI"]
+runpy.run_module("com_github_bennymeg_JLC-Plugin-for-KiCad.cli", run_name="__main__")
+'@
+```
+
+(`-t` rotation fixes, `-f` zone refill, `-e` exclude DNP → keeps J2 out,
+`-nI` non-interactive. `runpy` because the plugin dir name has hyphens.)
 
 ## Option B — pure kicad-cli (no GUI, scriptable)
 
@@ -84,9 +101,12 @@ JLC preview. Prefer Option A for ordering; use Option B for CI/checks.
 6. Placement preview: verify U1/U2/U4 pin-1 orientation and RV1/J3 outline
    vs pads (these are the rotation-risk parts). Fix rotations in the JLC
    editor if a part renders rotated.
-7. THT parts (Pmod header J1, jack J3 has TH anchors but is SMT-pad
-   soldered; the header is NOT assembled) — J1 is hand-soldered at home:
-   that is what the Pinecil is for.
+7. THT parts: J1 (Pmod header, C60565) is in the BOM/CPL for JLC economic
+   THT assembly — verify in the parts-matching page that JLC accepts it for
+   economic assembly; if it's flagged unsupported, either switch the order
+   to Standard assembly or mark J1 "Do not place" in the JLC editor and
+   hand-solder it (Pinecil fallback). J3's TH legs are anchors only, SMT
+   soldered.
 8. Order. Economic assembly typically adds ~1 week.
 
 ## After ordering
